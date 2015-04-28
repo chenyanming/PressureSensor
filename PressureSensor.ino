@@ -6,6 +6,7 @@
  * Developed by CHEN Yanming - 14096635g, TAN Xiao - 14104813g
  * From: Hong Kong Polytechnic University
  * From: Department of Electronic Information Engineering
+ * Fucntion: Read Pressure Sensor's value using analog Pin A0
  */
 // #include <Wire.h> //I2C needed for sensors
 // #include "MPL3115A2.h" //Pressure sensor
@@ -65,9 +66,7 @@ float pressure[4]={0,0,0,0};
 
 void setup()
 {
-  pinMode(0, INPUT);
-  pinMode(4, OUTPUT);
-
+  pinMode(A0, INPUT);
   
   MYSERIAL.begin(9600);
 
@@ -116,8 +115,7 @@ void calcPressure()
      * Simulate the pressure sensors
      * And read the data
      */
-    analogWrite(4, 230);
-    pressure[0]=analogRead(0);
+    pressure[0]=analogRead(A0);
 }
 
 
